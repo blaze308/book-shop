@@ -1,15 +1,16 @@
+const fs = require("fs");
 const { Router } = require("express");
 const router = Router();
 const { checkAuth, timeStamp } = require("../middlewares/users.middleware");
-const {
+const {   
   getAllUsers,
   getUser,
-  createUser,
-} = require("../controllers/users.controller");
+  createUser,} = require("../controllers/users.controller");
 
 // get all users
 router.get("/", checkAuth, getAllUsers);
 
+// get user by id
 router.get("/:id", checkAuth, getUser);
 
 // add new user
